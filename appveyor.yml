@@ -6,8 +6,12 @@ build:
 test_script:
 - ps: >-
     cd UnitTestsAppveyorTests\bin\Debug
+    
+    write host "last error: $?"
 
     mstest /testcontainer:UnitTestsAppveyorTests.dll /resultsfile:testResult1.xml
+    
+    write host "last error: $?"
 
     $wc = New-Object 'System.Net.WebClient'
 
