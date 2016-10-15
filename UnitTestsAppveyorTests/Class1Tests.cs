@@ -17,5 +17,11 @@ namespace UnitTestsAppveyor.Tests
             Class1 class1 = new Class1();
             Assert.IsTrue(class1.Sum(1, 2) == 3);
         }
+        
+        [TestMethod()]
+        public void BrokenTest()
+        {
+            Assert.IsTrue(1 == 2);
+        }
     }
 }
