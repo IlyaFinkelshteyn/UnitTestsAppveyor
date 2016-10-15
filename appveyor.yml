@@ -11,4 +11,4 @@ test_script:
 
     $wc = New-Object 'System.Net.WebClient'
 
-    $wc.UploadFile("http://appveyor.local/api/testresults/mstest/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\testResult1.xml))
+    $wc.UploadFile("https://ci.appveyor.com/api/testresults/mstest/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\testResult1.xml))
