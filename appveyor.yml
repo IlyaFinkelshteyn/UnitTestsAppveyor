@@ -6,6 +6,8 @@ build:
 
 test_script:
 - ps: >-
+    $ErrorActionPreference = "Stop"
+    
     cd UnitTestsAppveyorTests\bin\Debug
 
     mstest /testcontainer:UnitTestsAppveyorTests.dll /resultsfile:testResult1.xml
