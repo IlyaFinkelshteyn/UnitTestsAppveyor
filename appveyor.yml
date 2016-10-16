@@ -4,19 +4,8 @@ init:
 build:
   verbosity: minimal
 
-after_build:
-- ps: dir adsasa
-
 test_script:
-- ps: >-
-   cd UnitTestsAppveyorTests\bin\Debug
-   
-    write host "last error: $?"
-
-    mstest /testcontainer:UnitTestsAppveyorTests.dll /resultsfile:testResult1.xml
-    
-    write host "last error: $?"
-
-    $wc = New-Object 'System.Net.WebClient'
-
-    $wc.UploadFile("https://ci.appveyor.com/api/testresults/mstest/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\testResult1.xml))
+- ps: cd UnitTestsAppveyorTests\bin\Debug
+- ps: mstest /testcontainer:UnitTestsAppveyorTests.dll /resultsfile:testResult1.xml
+- ps: $wc = New-Object 'System.Net.WebClient'
+- ps: $wc.UploadFile("https://ci.appveyor.com/api/testresults/mstest/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\testResult1.xml))
