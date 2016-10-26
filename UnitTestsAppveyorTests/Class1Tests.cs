@@ -14,24 +14,26 @@ namespace UnitTestsAppveyor.Tests
     public class Class1Tests
     {
 
+        public Class1Tests()
+        {
+            
+        }
+
 
         [AssemblyInitialize()]
         public static void AssemblyInit(TestContext context)
         {
             Trace.Listeners.Add(new TextWriterTraceListener(Console.Out));
             Trace.WriteLine(String.Format("AssemblyInit started with test {0} at {1}", context.TestName, DateTime.UtcNow));
-            Trace.Flush();
-            Thread.Sleep(1);
-            Trace.WriteLine(String.Format("AssemblyInit finsihed with test {0} at {1}", context.TestName, DateTime.UtcNow));
-            Trace.Flush();
+            Trace.WriteLine("Doing something for 30 seconds...");
+            Thread.Sleep(TimeSpan.FromSeconds(30));
+            Trace.WriteLine(String.Format("AssemblyInit finished with test {0} at {1}", context.TestName, DateTime.UtcNow));
         }
 
 
         [TestMethod()]
         public void SumTest()
         {
-            Debug.Listeners.Add(new TextWriterTraceListener(Console.Out));
-            Debug.WriteLine("My line from debug");
             Class1 class1 = new Class1();
             Assert.IsTrue(class1.Sum(1, 2) == 3);
         }
