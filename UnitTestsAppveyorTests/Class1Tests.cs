@@ -23,7 +23,6 @@ namespace UnitTestsAppveyor.Tests
         [AssemblyInitialize()]
         public static void AssemblyInit(TestContext context)
         {
-            Trace.Listeners.Add(new TextWriterTraceListener(Console.Out));
             Trace.WriteLine(String.Format("AssemblyInit started with test {0} at {1}", context.TestName, DateTime.UtcNow));
             Trace.WriteLine("Doing something for 30 seconds...");
             Thread.Sleep(TimeSpan.FromSeconds(30));
