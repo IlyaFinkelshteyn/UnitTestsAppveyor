@@ -14,33 +14,24 @@ namespace UnitTestsAppveyor.Tests
     public class Class1Tests
     {
 
-        //public Class1Tests()
-        //{
-        //    TraceListener[] listeners = {
-        //        new TextWriterTraceListener(Console.Out)
-        //    };
-        //    Debug.Listeners.AddRange(listeners);
-        //}
 
         [AssemblyInitialize()]
         public static void AssemblyInit(TestContext context)
         {
-           // Trace.Listeners.Add(new TextWriterTraceListener(Console.Out));
-            //Trace.WriteLine("AssemblyInit 1 " + context.TestName);
-            //Trace.Flush();
-            //Thread.Sleep(1);
-            Trace.WriteLine("AssemblyInit 2 " + context.TestName);
-            //Trace.Flush();
+            Trace.Listeners.Add(new TextWriterTraceListener(Console.Out));
+            Trace.WriteLine(String.Format("AssemblyInit started with test {0} at {1}", context.TestName, DateTime.UtcNow));
+            Trace.Flush();
+            Thread.Sleep(1);
+            Trace.WriteLine(String.Format("AssemblyInit finsihed with test {0} at {1}", context.TestName, DateTime.UtcNow));
+            Trace.Flush();
         }
 
 
         [TestMethod()]
         public void SumTest()
         {
-            Trace.Flush();
-            Trace.Listeners.Add(new TextWriterTraceListener(Console.Out));
-            Trace.WriteLine("Sum test 123");
-            Trace.Flush();
+            Debug.Listeners.Add(new TextWriterTraceListener(Console.Out));
+            Debug.WriteLine("My line from debug");
             Class1 class1 = new Class1();
             Assert.IsTrue(class1.Sum(1, 2) == 3);
         }
