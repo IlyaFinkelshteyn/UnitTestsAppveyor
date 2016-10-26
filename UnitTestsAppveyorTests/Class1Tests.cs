@@ -11,6 +11,11 @@ namespace UnitTestsAppveyor.Tests
     [TestClass()]
     public class Class1Tests
     {
+        [AssemblyInitialize()]
+        public static void AssemblyInit(TestContext context)
+        {
+            Console.WriteLine("AssemblyInit " + context.TestName);
+        }
         [TestMethod()]
         public void SumTest()
         {
