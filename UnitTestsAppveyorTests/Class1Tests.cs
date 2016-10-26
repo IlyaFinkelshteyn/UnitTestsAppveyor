@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace UnitTestsAppveyor.Tests
 {
@@ -15,6 +16,7 @@ namespace UnitTestsAppveyor.Tests
         public static void AssemblyInit(TestContext context)
         {
             Console.WriteLine("AssemblyInit " + context.TestName);
+            Thread.Sleep(TimeSpan.FromMinutes(1));
         }
         [TestMethod()]
         public void SumTest()
