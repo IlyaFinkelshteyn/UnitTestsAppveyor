@@ -13,7 +13,8 @@ test_script:
             
     $wc = New-Object 'System.Net.WebClient
     
-    Get-ChildItem -Recurse -Filter *.xml | ForEach-Object {$wc.UploadFile("https://ci.appveyor.com/api/testresults/mstest/$($env:APPVEYOR_JOB_ID)", (Resolve-Path $_.FullName))}  
+    #Get-ChildItem -Recurse -Filter *.xml | ForEach-Object {$wc.UploadFile("https://ci.appveyor.com/api/testresults/mstest/$($env:APPVEYOR_JOB_ID)", (Resolve-Path $_.FullName))}  
+    Get-ChildItem -Recurse -Filter *.xml | ForEach-Object {Resolve-Path $_.FullName}  
 
   
   
