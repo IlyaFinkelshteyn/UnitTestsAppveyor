@@ -15,7 +15,9 @@ test_script:
     
     write-host $env:APPVEYOR_JOB_ID
     
-    Get-ChildItem -Recurse -Filter *.xml | ForEach-Object {$wc.UploadFile("https://ci.appveyor.com/api/testresults/mstest/$($env:APPVEYOR_JOB_ID)", (Resolve-Path $_.FullName))}  
+    foreach ($f in (Get-ChildItem -Recurse -Filter *.xml)) {$wc.UploadFile("https://ci.appveyor.com/api/testresults/mstest/$($env:APPVEYOR_JOB_ID)", (Resolve-Path $f.FullName))}  
+    
+    ##Get-ChildItem -Recurse -Filter *.xml | ForEach-Object {$wc.UploadFile("https://ci.appveyor.com/api/testresults/mstest/$($env:APPVEYOR_JOB_ID)", (Resolve-Path $_.FullName))}  
 
   
   
