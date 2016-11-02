@@ -9,7 +9,7 @@ test_script:
    
     mstest /testcontainer:UnitTestsAppveyorTests\bin\Debug\UnitTestsAppveyorTests.dll /resultsfile:testResult1.xml
     
-    mstest /testcontainer:UnitTestsAppveyorTests\bin\Debug\UnitTestsAppveyor.dll/resultsfile:testResult2.xml
+    mstest /testcontainer:UnitTestsAppveyorTests\bin\Debug\UnitTestsAppveyor.dll /resultsfile:testResult2.xml
     
     dir .\UnitTestsAppveyorTests\bin\Debug\
     
