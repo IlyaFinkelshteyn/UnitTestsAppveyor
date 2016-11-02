@@ -13,7 +13,7 @@ test_script:
     
     Get-ChildItem -Recurse -Filter *.xml
     
-    Get-ChildItem -Recurse -Filter *.xml | ForEach-Object {$wc.UploadFile("https://ci.appveyor.com/api/testresults/mstest/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\UnitTestsAppveyorTests\bin\Debug\$_))}  
+    Get-ChildItem -Recurse -Filter *.xml | ForEach-Object {$wc.UploadFile("https://ci.appveyor.com/api/testresults/mstest/$($env:APPVEYOR_JOB_ID)", (Resolve-Path $_.FullName))}  
 
   
   
