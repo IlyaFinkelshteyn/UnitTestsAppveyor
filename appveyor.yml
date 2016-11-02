@@ -4,6 +4,20 @@ init:
 build:
   verbosity: minimal
 
+test_script:
+- ps: >-
+   
+    mstest /testcontainer:UnitTestsAppveyorTests\bin\Debug\UnitTestsAppveyorTests.dll /resultsfile:testResult1.xml
+    
+    mstest /testcontainer:UnitTestsAppveyorTests\bin\Debug\UnitTestsAppveyor.dll/resultsfile:testResult2.xml
+    
+    dir .\UnitTestsAppveyorTests\bin\Debug\
+    
+    Get-ChildItem -path .\UnitTestsAppveyorTests\bin\Debug\ -Filter *.xml | ForEach-Object {$wc.UploadFile("https://ci.appveyor.com/api/testresults/mstest/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\UnitTestsAppveyorTests\bin\Debug\$_))}  
+
+  
+  
+
 #test_script:
 #- ps: >-
 #    $ErrorActionPreference = "Stop"
