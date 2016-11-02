@@ -9,7 +9,7 @@ test_script:
    
     mstest /testcontainer:UnitTestsAppveyorTests\bin\Debug\UnitTestsAppveyorTests.dll /resultsfile:testResult1.xml
     
-    mstest /testcontainer:"UnitTestsAppveyor\UnitTestProject2\bin\Debug\UnitTestProject2.dll /resultsfile:testResult2.xml
+    mstest /testcontainer:UnitTestProject2\bin\Debug\UnitTestProject2.dll /resultsfile:testResult2.xml
     
     Get-ChildItem -Recurse -Filter *.xml
     
