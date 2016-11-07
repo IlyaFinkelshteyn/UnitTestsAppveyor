@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Diagnostics;
+using System.IO;
 
 namespace UnitTestsAppveyor.Tests
 {
@@ -41,7 +42,7 @@ namespace UnitTestsAppveyor.Tests
         public void Sum2()
         {
             Class1 class1 = new Class1();
-            Assert.IsTrue(class1.Sum(1, 2) == 0);
+            Assert.IsTrue(class1.Sum(1, 2) == 3);
         }
         
         [TestMethod()]
